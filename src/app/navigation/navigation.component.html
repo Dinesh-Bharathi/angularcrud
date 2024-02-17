@@ -1,0 +1,59 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="false"
+  >
+    <mat-toolbar><img [src]="source" alt="" /></mat-toolbar>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        [routerLink]="['']"
+        routerLinkActive="router-link-active"
+        (click)="drawer.toggle()"
+        >Dashboard</a
+      >
+      <a
+        mat-list-item
+        [routerLink]="['patients']"
+        routerLinkActive="active"
+        (click)="drawer.toggle()"
+        >Patients</a
+      >
+      <a
+        mat-list-item
+        [routerLink]="['settings']"
+        routerLinkActive="active"
+        (click)="drawer.toggle()"
+        >Settings</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div class="title">
+        <!-- @if (isHandset$ | async) { -->
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+        >
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <!-- } -->
+        <span>{{ title }}</span>
+      </div>
+      <button mat-mini-fab color="link" routerLink="/patients/addpatient">
+        <mat-icon>person_add</mat-icon>
+      </button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="main-container">
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
