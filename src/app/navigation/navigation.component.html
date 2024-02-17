@@ -47,7 +47,7 @@
         <!-- } -->
         <span>{{ title }}</span>
       </div>
-      <button mat-mini-fab color="link" routerLink="/patients/addpatient">
+      <button mat-mini-fab color="link" (click)="openAddPatientModal()">
         <mat-icon>person_add</mat-icon>
       </button>
     </mat-toolbar>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PatientsService } from '../../Services/patient.service';
+import { PatientsService } from '../../Services/patients/patient.service';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../sharedcomponents/confirm-dialog/confirm-dialog.component';

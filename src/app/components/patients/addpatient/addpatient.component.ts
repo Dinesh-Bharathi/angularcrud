@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { PatientsService } from '../../../Services/patient.service';
-import { Router } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { PatientsService } from '../../../Services/patients/patient.service';
 
 @Component({
   selector: 'app-addpatient',
@@ -10,13 +10,20 @@ import { Router } from '@angular/router';
 export class AddpatientComponent {
   isLoading$ = this.patientService.isLoading$;
   constructor(
+    private dialogRef: MatDialogRef<AddpatientComponent>,
     private patientService: PatientsService,
-    private router: Router
+    @Inject(MAT_DIALOG_DATA) private data: any // Optional for passed data
   ) {}
+
+  ngOnInit() {}
+
+  onClose() {
+    this.dialogRef.close();
+  }
 
   createPatient(patient: { patientName: string; contact: string }) {
     this.patientService.createPatient(patient).subscribe((res) => {
-      this.router.navigate(['/patients']);
+      this.onClose();
     });
   }
 }

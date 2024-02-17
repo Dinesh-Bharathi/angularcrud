@@ -18,7 +18,7 @@ import { PatientsComponent } from './components/patients/patients.component';
 import { AddpatientComponent } from './components/patients/addpatient/addpatient.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { PatientsService } from './Services/patient.service';
+import { PatientsService } from './Services/patients/patient.service';
 import { ConfirmDialogComponent } from './sharedcomponents/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
